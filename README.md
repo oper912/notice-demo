@@ -1,8 +1,10 @@
 # notice-demo
 
-spring-boot
-JPA
-H2
+-----------
+* spring-boot
+* JPA
+* H2
+-----------
 
 실행 환경 
 --------
