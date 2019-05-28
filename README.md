@@ -7,6 +7,7 @@
 * port : `8080`
 * index : [localhost:8080](http://localhost:8080)
 * h2-console : [localhost:8080/h2](http://localhost:8080/h2)
+* h2-jdbc url : jdbc:h2:~/test
 * h2-account : sa
 * h2-password : empty string
 
