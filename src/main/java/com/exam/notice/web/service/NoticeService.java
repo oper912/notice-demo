@@ -68,8 +68,9 @@ public class NoticeService {
         Notice prevNotice = noticeDAO.findById(id).orElseThrow(() -> new NotFoundException(id, Notice.class));
 
         if (!noticeRequest.isSame(prevNotice)) {
-            prevNotice.setContent(noticeRequest.getContent());
             prevNotice.setTitle(noticeRequest.getTitle());
+            prevNotice.setWriter(noticeRequest.getWriter());
+            prevNotice.setContent(noticeRequest.getContent());
             noticeDAO.save(prevNotice);
         } else {
             log.info("have not changed");

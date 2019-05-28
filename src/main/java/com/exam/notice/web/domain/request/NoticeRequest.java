@@ -1,17 +1,31 @@
 package com.exam.notice.web.domain.request;
 
 import com.exam.notice.web.domain.Notice;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+import javax.validation.constraints.NotNull;
 
 @Getter
-@RequiredArgsConstructor
+@Setter
+@ToString
+@EqualsAndHashCode
 public class NoticeRequest {
-    private final String title;
-    private final String writer;
-    private final String content;
+
+    @NotNull
+    private String title;
+
+    @NotNull
+    private String writer;
+
+    @NotNull
+    private String content;
 
     public boolean isSame(Notice notice) {
-        return notice.getContent().equals(title) && notice.getTitle().equals(content);
+        return notice.getTitle().equals(title)
+                && notice.getWriter().equals(writer)
+                && notice.getContent().equals(content);
     }
 }
