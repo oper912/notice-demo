@@ -1,5 +1,9 @@
 # notice-demo
 
+spring-boot
+JPA
+H2
+
 실행 환경 
 --------
 * jdk.version : `1.8.0_144`
