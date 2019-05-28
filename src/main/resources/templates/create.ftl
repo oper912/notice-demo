@@ -16,7 +16,7 @@
 
 <body>
 <div class="container">
-    <h1>공지사항 - 글 수정</h1>
+    <h1>공지사항 - 글 등록</h1>
     <br>
 
     <div class="form-group">
@@ -33,26 +33,12 @@
     </div>
 
     <button type="button" onclick="location.href='/index'" class="btn btn-primary">리스트</button>
-    <button type="button" class="btn btn-success" id="updateBtn">수정</button>
+    <button type="button" class="btn btn-success" id="insertBtn">등록</button>
 </div>
 
 <script>
 
-    $(document).ready(function () {
-        $.ajax({
-            url: "/api/notices/${noticeId}",
-            type: "GET",
-            error : function(request) {
-                alert(request.responseText);
-            }
-        }).done(function(result) {
-            $('#writer').val(result.writer);
-            $('#title').val(result.title);
-            $('#content').text(result.content);
-        })
-    });
-
-    $("#updateBtn").click(function() {
+    $("#insertBtn").click(function() {
         var writer = $("#writer").val();
         var title = $("#title").val();
         var content = $("#content").val();
@@ -63,15 +49,15 @@
             alert("제목을 입력해주세요.");
         } else {
             $.ajax({
-                url: "/api/notices/${noticeId}",
-                type: "PUT",
+                url: "/api/notices",
+                type: "POST",
                 contentType: 'application/json',
                 data: JSON.stringify({ title: title,
                                        content: content,
                                        writer: writer })
-            }).done(function() {
-                alert('수정되었습니다.');
-                location.href='/show/${noticeId}';
+            }).done(function () {
+                alert('등록되었습니다.');
+                location.href='/index';
             })
         }
     });
@@ -80,3 +66,4 @@
 
 </body>
 </html>
+</head>

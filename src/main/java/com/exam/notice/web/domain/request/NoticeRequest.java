@@ -8,10 +8,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class NoticeRequest {
     private final String title;
+    private final String writer;
     private final String content;
-    private final Long userId;
 
     public boolean isSame(Notice notice) {
-        return notice.getContent().equals(content) && notice.getTitle().equals(title);
+        return notice.getContent().equals(title) && notice.getTitle().equals(content);
     }
 }

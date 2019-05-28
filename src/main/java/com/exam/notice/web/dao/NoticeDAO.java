@@ -10,15 +10,13 @@ import java.util.List;
 
 @Repository
 public interface NoticeDAO extends JpaRepository<Notice, Long> {
+
     Page<Notice> findAll(Pageable pageable);
 
     Page<Notice> findByTitleContains(Pageable pageable, String title);
     List<Notice> findByTitleContains(String title);
 
-//
-//    @Query(" select n from Notice n " +
-//            " where " +
-//            " n.content like :str " +
-//            " or n.title like  :str ")
-//    List<Notice> findByT(@Param("str") String title);
+    Page<Notice> findByWriterContains(Pageable pageable, String title);
+    List<Notice> findByWriterContains(String title);
+
 }

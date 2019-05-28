@@ -37,9 +37,9 @@
 
 <body>
 <div class="container">
-    <h1>공지사항</h1>
+    <h1>공지사항 - 리스트</h1>
     <div class="addDiv">
-        <button type="button" onclick="location.href='/insert'" class="btn btn-primary topBtn">글 등록</button>
+        <button type="button" onclick="location.href='/create'" class="btn btn-primary topBtn">글 등록</button>
         <button class="btn btn-primary topBtn" onclick="location.href='/index'">전체목록</button>
     </div>
     <div id="searchDiv">
@@ -55,20 +55,14 @@
         <table class="table table-striped">
             <tr>
                 <th>번호</th>
-                <th>제목</th>
                 <th>작성자</th>
-                <th>작성일</th>
-                <th>수정일</th>
+                <th>제목</th>
             </tr>
             <#list noticeCriteria.notices as notice>
                 <tr>
-
                     <td>${notice.id}</td>
+                    <td>${notice.writer}</td>
                     <td><a href="./show/${notice.id}"> ${notice.title}</a></td>
-                    <td>${notice.user.userId}</td>
-<#--                    <td>${notice.createdAt?string["dd.MM.yyyy, HH:mm"]}</td>-->
-                    <td>${notice.createdAt}</td>
-                    <td>${notice.updatedAt}</td>
                 </tr>
             </#list>
         </table>
@@ -120,7 +114,7 @@
                 break;
             case 2:
                 if (searchWord == "") alert("검색어를 입력해주세요");
-                else location.href = '/index?page=1&searchType=title&searchWord=' + searchWord;
+                else location.href = '/index?page=1&searchType=writer&searchWord=' + searchWord;
                 break;
         }
     });
