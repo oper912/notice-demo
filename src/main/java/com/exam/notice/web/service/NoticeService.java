@@ -96,5 +96,6 @@ public class NoticeService {
 
     public void gitTest() {
         System.out.println("git을 공부해보자");
+        System.out.println("git을 공부해보자2");
     }
 }
